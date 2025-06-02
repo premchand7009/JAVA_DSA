@@ -13,7 +13,7 @@ class Node_  {
     }
 }
 
-public class LinkedList {
+public class Singly_LinkedList {
 
     public static Node_ create(Node_ start){
         Node_ newNode=new Node_();
