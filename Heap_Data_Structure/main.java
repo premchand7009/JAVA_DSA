@@ -47,6 +47,31 @@ class MinHeap {
         heapifyDown(0);
         return root;
     }
+    public int removeIndex(int index) {
+        if (size == 0) {
+            System.out.println("Heap is Empty!");
+            return -1;
+        }
+
+        if (index < 0 || index >= size) {
+            System.out.println("Entered index doesn't exist");
+            return -1;
+        }
+
+        int deletedValue = heap[index];
+        heap[index] = heap[size - 1]; // Replace with last element
+        size--; // Reduce size
+
+        // Restore heap property
+        if (index > 0 && heap[index] < heap[(index - 1) / 2]) {
+            heapifyUp(index);
+        } else {
+            heapifyDown(index);
+        }
+
+        return deletedValue;
+    }
+
 
     public void heapifyDown(int index) {
         int smallest = index;
@@ -100,6 +125,8 @@ public class main {
 
         System.out.println("Removed Min: " + mh.removeMin());
         System.out.print("After remove: ");
+        mh.printHeap();
+        mh.removeIndex(0);
         mh.printHeap();
 
         int[] sorted = mh.sort();
