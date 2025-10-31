@@ -59,10 +59,9 @@ class MinHeap {
         }
 
         int deletedValue = heap[index];
-        heap[index] = heap[size - 1]; // Replace with last element
-        size--; // Reduce size
+        heap[index] = heap[size - 1];
+        size--; 
 
-        // Restore heap property
         if (index > 0 && heap[index] < heap[(index - 1) / 2]) {
             heapifyUp(index);
         } else {
