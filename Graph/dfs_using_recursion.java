@@ -13,8 +13,8 @@ class edge {
 
 public class dfs_using_recursion {
     public static void dfs(ArrayList<edge> graph[], boolean vis[], int curr) {
-        System.out.println(curr);
         vis[curr] = true;
+        System.out.println(curr);
         for (int i = 0; i < graph[curr].size(); i++) {
             edge e = graph[curr].get(i);
             if(!vis[e.v]) {
